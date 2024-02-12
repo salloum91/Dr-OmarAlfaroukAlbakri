@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlFarok</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='HomePage.css') }}">
+</head>
+<body>
+    <header class="header-soial">
+        <div class="header-soial-logo">
+            <a href="#"><img class="farok-logo-img" src="static/images/farok-Logo.png" alt="farok-Logo" ></a>
+            <nav class="header-soial-nav">
+                <ul>
+                    <li> <a href="#">الصفحة الرئيسية</a> </li>
+                    <li> <a href="/fatawa">ردود و فتاوى</a> </li>
+                    <li> <a href="#">الصوتيات</a> </li>
+                    <li> <a href="#">الفيديوهات </a> </li>
+                    <li> <a href="/admin">المشرف العام </a> </li>
+                    <li> <a href="#">للتعديل </a> </li>
+                    <li> <a href="#">للتعديل </a> </li>
+                    <li> <a href="#">للتعديل </a> </li>
+                    
+                    
+                    <li class="date"> <a href="#"><p class="date-text"><span id="calendar-result">Loading...</span></p> </a> </li>
+    
+    
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="header-soial-sm">
+            <a href="https://www.facebook.com/omaralfarouktv/" target="_blank"><div class="header-soial-sm-fb"></div></a>
+            <a href="https://t.me/Dr_omaralfaroukalbakri" target="_blank"><div class="header-soial-sm-tel" ></div></a>
+            <a href="https://www.tiktok.com/@dr.omarfaroukbakri?_t=8eJayt3rbeQ&_r=1" target="_blank"><div class="header-soial-sm-tik1" ></div></a>
+            <a href="https://www.tiktok.com/@dr.omaralfaroukbakri?_t=8eJawOmH0w2&_r=1" target="_blank"><div class="header-soial-sm-tik2" ></div></a>
+            <a href="https://www.youtube.com/@D.rOmaralfaroukalBakri" target="_blank"><div class="header-soial-sm-you1" ></div></a>
+            <a href="https://www.youtube.com/@D.rOmaralfaroukalBakri2" target="_blank"><div class="header-soial-sm-you2" ></div></a>
+            <a href="https://chat.whatsapp.com/BsvqOh7OSCvHxnChudH0uW" target="_blank"><div class="header-soial-sm-whats" ></div></a>
+
+        </div>
+
+    </header>
+
+
+
+
+
+
+   
+
+    <header class="all-in-header">
+        <div class="wrapper">
+            
+            
+            <div class="bg"> دليل الوصول لطاعة الرسول</div>
+            <div class="fg"> دليل الوصول لطاعة الرسول</div>
+            <p class="muschrif">المشرف العام الدكتور عمر الفاروق البكري</p>
+            
+        </div>
+       
+    </header>
+
+
+  <footer class="footer">
+        <header class="header-main">
+         <div><img src="../static/images/Doc-Omar.png" alt="doc-omar-image" class="doc-omar"></div>
+      
+         <div><img src="../static/images/farok-Logo.png" alt="main-Logo" class="main-logo-farok"></div>
+
+        </header>
+  </footer>
+
+
+    
+
+    <!-- Inside your HTML file (HomePage.html) -->
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Make an AJAX request to get Hijri Calendar for a Gregorian month
+         $.get('/hijri-data', function(data) {
+            var hijriDate = data.data.hijri.date;
+            $('#calendar-result').text(' تاريخ اليوم : ' + hijriDate + ' هجرية ');
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            console.error('AJAX Error:', textStatus, errorThrown);
+            $('#calendar-result').text('Failed to fetch Hijri Data');
+        });
+    });
+    </script>
+
+    
+
+
+</body>
+</html>
