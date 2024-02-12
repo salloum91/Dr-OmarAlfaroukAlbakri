@@ -378,8 +378,9 @@ def my_answers():
     admin_questions = AdminQuestion.query.join(Question).all()
     return render_template('myanswers.html', admin_questions=admin_questions)
 
-
+# python web server
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # Create tables before running the app
-    app.run(debug=True)
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
+
